@@ -21,3 +21,10 @@ for d in data:
         new.append(d)
 print("There are", len(new), "data's length is less than 100")
 print(new[0])
+
+good = []
+for d in data:
+    if "good" in d:
+        good.append(d)
+print("There are", len(good), "datas mentioned good in the list")
+print(good[0])
