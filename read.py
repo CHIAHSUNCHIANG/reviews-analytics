@@ -28,3 +28,15 @@ for d in data:
         good.append(d)
 print("There are", len(good), "datas mentioned good in the list")
 print(good[0])
+
+#快寫法
+gooe = [d for d in data if 'good' in d]
+print(good)
+
+bad = []
+for d in data:
+    bad.append('bad' in d)
+
+#快寫法
+bad = ['bad' in d for d in data]
+print(bad)
