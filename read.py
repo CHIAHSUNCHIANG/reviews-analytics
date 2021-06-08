@@ -14,3 +14,10 @@ for d in data:
    sum_len += len(d)
 
 print('The average is', sum_len/len(data))
+
+new = []
+for d in data:
+    if len(d) < 100:
+        new.append(d)
+print("There are", len(new), "data's length is less than 100")
+print(new[0])
