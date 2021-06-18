@@ -1,12 +1,14 @@
+import time
+import progressbar
+
 data = []
 count = 0
+bar = progressbar.ProgressBar(max_value = 1000000)
 with open('reviews.txt', 'r') as f:
     for line in f:
         data.append(line)
         count += 1
-        if count % 1000 == 0:
-            print(len(data))
-
+        bar.update(count)
 print('The file is finished reading, there are', len(data), 'data lists.')
 
 print(data[0])
@@ -31,19 +33,22 @@ for d in data:
 print("There are", len(good), "datas mentioned good in the list")
 print(good[0])
 
-#快寫法
-good = [d for d in data if 'good' in d]
-print(good)
+# #快寫法
+# good = [d for d in data if 'good' in d]
+# print(good)
 
-bad = []
-for d in data:
-    bad.append('bad' in d)
+# bad = []
+# for d in data:
+#     bad.append('bad' in d)
 
-#快寫法
-bad = ['bad' in d for d in data]
-print(bad)
+# #快寫法
+# bad = ['bad' in d for d in data]
+# print(bad)
+
+
 
 #Words count.
+start_time = time.time()
 wc = {} #word_count
 for d in data:
     words = d.split()
@@ -56,6 +61,9 @@ for d in data:
 for word in wc:
     if wc[word] > 1000000:
         print(word, wc[word])
+end_time = time.time()
+
+print('It spent', end_time - start_time, 'seconds to print the words.')
 print(len(wc))
 print(wc['Allen'])
 
